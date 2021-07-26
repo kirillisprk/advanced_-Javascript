@@ -60,10 +60,10 @@ class CartItem {
     getInfoProduct() {
     };
 
-    addCart() {
+    removeCart() {
     };
 
-    removeCart() {
+    addCart() {
     };
 
     renderCartItem() {
