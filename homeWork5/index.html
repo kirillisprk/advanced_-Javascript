@@ -26,21 +26,23 @@
                 <button class="btn-cart" v-on:click="showCard =!showCard" type="button">
                     <i class="fas fa-shopping-cart"></i>
                 </button>
-                <div class="basket" v-show="showCard">
-                    <h3 class="text-card" v-show="card.contents.length===0">Товары отсутствуют</h3>
-                    <div class="basket__item" v-for="productCard of card.contents"
-                         :key="productCard.id_product">
-                        <p class="product-item__name">{{ productCard.product_name }}</p>
-                        <p class="product-item__quantity">{{ productCard.quantity }}</p>
-                        <p class="product-item__prise">{{ productCard.price * productCard.quantity }} руб.</p>
-                        <button class="remove-btn" @click="removeProductCard(productCard)">
-                            <i class="fas fa-minus-circle"></i>
-                        </button>
+                <transition name="fade">
+                    <div class="basket" v-show="showCard">
+                        <h3 class="text-card" v-show="card.contents.length===0">Товары отсутствуют</h3>
+                        <div class="basket__item" v-for="productCard of card.contents"
+                             :key="productCard.id_product">
+                            <p class="product-item__name">{{ productCard.product_name }}</p>
+                            <p class="product-item__quantity">{{ productCard.quantity }}</p>
+                            <p class="product-item__prise">{{ productCard.price * productCard.quantity }} руб.</p>
+                            <button class="remove-btn" @click="removeProductCard(productCard)">
+                                <i class="fas fa-minus-circle"></i>
+                            </button>
+                        </div>
+                        <h3 class="text-card" v-show="card.contents.length>0">
+                            Общая стоимость: {{ getTotalPriceProductCard }} руб.
+                        </h3>
                     </div>
-                    <h3 class="text-card" v-show="card.contents.length>0">
-                        Общая стоимость: {{ getTotalPriceProductCard }} руб.
-                    </h3>
-                </div>
+                </transition>
             </div>
         </div>
     </header>
