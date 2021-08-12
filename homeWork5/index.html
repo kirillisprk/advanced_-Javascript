@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>E-shop</title>
+    <script src="https://kit.fontawesome.com/e288fa3e20.js" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app">
+    <header class="header">
+        <div class="container container_grid">
+            <h1 class="logo">E&minus;shop</h1>
+            <form action="#" class="filter">
+                <input type="text"
+                       v-model="filterInput"
+                       v-on:input="filterProduct"
+                       class="filter__input"
+                       placeholder="Поиск">
+            </form>
+            <div class="basket-block">
+                <div class="chips-cart" v-show="getCountProductCard>0">{{ getCountProductCard }}</div>
+                <button class="btn-cart" v-on:click="showCard =!showCard" type="button">
+                    <i class="fas fa-shopping-cart"></i>
+                </button>
+                <div class="basket" v-show="showCard">
+                    <h3 class="text-card" v-show="card.contents.length===0">Товары отсутствуют</h3>
+                    <div class="basket__item" v-for="productCard of card.contents"
+                         :key="productCard.id_product">
+                        <p class="product-item__name">{{ productCard.product_name }}</p>
+                        <p class="product-item__quantity">{{ productCard.quantity }}</p>
+                        <p class="product-item__prise">{{ productCard.price * productCard.quantity }} руб.</p>
+                        <button class="remove-btn" @click="removeProductCard(productCard)">
+                            <i class="fas fa-minus-circle"></i>
+                        </button>
+                    </div>
+                    <h3 class="text-card" v-show="card.contents.length>0">
+                        Общая стоимость: {{ getTotalPriceProductCard }} руб.
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <h1 class="text-cart" v-show="productsFilter.length===0">Товары отсутствуют</h1>
+            <div class="products">
+                <div class="product-item" v-for="product of productsFilter" :key="product.id_product">
+                    <img :src="imgCatalog" alt="Some img">
+                    <h3 class="product-item__name">{{ product.product_name }}</h3>
+                    <p class="product-item__prise">{{ product.price }} руб.</p>
+                    <button class="buy-btn" @click="addProductCard(product)">Купить</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+</body>
+</html>
