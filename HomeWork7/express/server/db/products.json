@@ -1,0 +1,47 @@
+[
+  {
+    "id_product": 1,
+    "product_name": "BLAZE LEGGINGS",
+    "price": 1999
+  },
+  {
+    "id_product": 2,
+    "product_name": "ALEXA SWEATER",
+    "price": 2990
+  },
+  {
+    "id_product": 3,
+    "product_name": "AGNES TOP",
+    "price": 2599
+  },
+  {
+    "id_product": 4,
+    "product_name": "SYLVA SWEATER",
+    "price": 999
+  },
+  {
+    "id_product": 5,
+    "product_name": "SYLVA SWEATER",
+    "price": 1199
+  },
+  {
+    "id_product": 6,
+    "product_name": "SYLVA SWEATER",
+    "price": 3599
+  },
+  {
+    "id_product": 7,
+    "product_name": "SYLVA SWEATER",
+    "price": 1599
+  },
+  {
+    "id_product": 8,
+    "product_name": "SYLVA SWEATER",
+    "price": 2599
+  },
+  {
+    "id_product": 9,
+    "product_name": "SYLVA SWEATER",
+    "price": 2399
+  }
+]

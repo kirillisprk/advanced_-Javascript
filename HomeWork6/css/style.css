@@ -223,3 +223,10 @@ body {
     opacity: 0;
 }
 
+.error-box {
+    padding: 10px 20px;
+    background: #f3beb8;
+    border: 1px solid #f09898;
+    margin: 20px 10px;
+    border-radius: 5px;
+}
